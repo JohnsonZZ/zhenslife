@@ -202,10 +202,10 @@
 			title:'注册',
 			skin: 'layui-layer-rim demo-class', //加上边框
 			area: ['450px', '370px'], //宽高
-			content:'<div class="regBox"><form id="regFrom"class="form-horizontal"method="post"class="m10"role="form"><div class="form-group"><label for="regAccount"class="col-sm-3 control-label">账号</label><div class="col-sm-9"><input type="text"class="form-control"id="regAccount"maxlength="8"placeholder="支持英文，下划线，数字组合"></div></div><div class="form-group"><label for="regUser"class="col-sm-3 control-label">昵称</label><div class="col-sm-9"><input type="text"class="form-control"id="regUser"maxlength="8"placeholder="请输入昵称"></div></div><div class="form-group"><label for="regPwd"class="col-sm-3 control-label">注册密码</label><div class="col-sm-9"><input type="password"class="form-control"id="regPwd"maxlength="10"placeholder="密码6-10位，不能是纯数字"></div></div><div class="form-group"><label for="confirmPwd"class="col-sm-3 control-label">确认密码</label><div class="col-sm-9"><input type="password"class="form-control"id="confirmPwd"maxlength="10"placeholder="输入密码"></div></div><div class="form-group"><label for="verify"class="col-sm-3 control-label">验证码</label><div class="col-sm-5"><input type="text"class="form-control"id="verify"placeholder="输入验证码"></div><div class="col-sm-4"><img id="verifyImg"src="/myblog/index.php/register/verify"title="点击刷新"height="34px"/></div></div></form></div>',
+			content:'<div class="regBox"><form id="regFrom"class="form-horizontal"method="post"class="m10"role="form"><div class="form-group"><label for="regAccount"class="col-sm-3 control-label">账号</label><div class="col-sm-9"><input type="text"class="form-control"id="regAccount"maxlength="8"placeholder="支持英文，下划线，数字组合"></div></div><div class="form-group"><label for="regUser"class="col-sm-3 control-label">昵称</label><div class="col-sm-9"><input type="text"class="form-control"id="regUser"maxlength="8"placeholder="请输入昵称"></div></div><div class="form-group"><label for="regPwd"class="col-sm-3 control-label">注册密码</label><div class="col-sm-9"><input type="password"class="form-control"id="regPwd"maxlength="10"placeholder="密码6-10位，不能是纯数字"></div></div><div class="form-group"><label for="confirmPwd"class="col-sm-3 control-label">确认密码</label><div class="col-sm-9"><input type="password"class="form-control"id="confirmPwd"maxlength="10"placeholder="输入密码"></div></div><div class="form-group"><label for="verify"class="col-sm-3 control-label">验证码</label><div class="col-sm-5"><input type="text"class="form-control"id="verify"placeholder="输入验证码"></div><div class="col-sm-4"><img id="verifyImg"src="/myblog/index.php/Home/Register/verify"title="点击刷新"height="34px"/></div></div></form></div>',
 			btn: ['确认', '取消'],
 			yes: function(){
-				$.post("<?php echo U('register/checkForm');?>",
+				$.post("<?php echo U('Register/checkForm');?>",
 						{
 							account:$("#regAccount").val(),
 							user:$("#regUser").val(),
@@ -231,7 +231,7 @@
 		});	 
 		$("#regAccount").blur(function(){
 			var account = $(this).val();
-			$.post("<?php echo U('register/checkAccount');?>",{"account":account},function(flag){
+			$.post("<?php echo U('Register/checkAccount');?>",{"account":account},function(flag){
 				switch(flag){
 					case 0:layer.tips('支持英文，数字，下划线_<br />且不少于4位', '#regAccount', {tips: 2});break;
 					case 1:layer.tips('账号已存在', '#regAccount', {tips: 2});;break;
@@ -240,7 +240,7 @@
 		});
 		$("#regUser").blur(function(){
 			var user = $(this).val();
-			$.post("<?php echo U('register/checkUser');?>",{"user":user},function(flag){
+			$.post("<?php echo U('Register/checkUser');?>",{"user":user},function(flag){
 				switch(flag){
 					case 0:layer.tips('不能为空或有空格', '#regUser', {tips: 2});break;
 					case 1:layer.tips('账号已存在', '#regUser', {tips: 2});;break;
@@ -250,7 +250,7 @@
 		
 		$("#regPwd").blur(function(){
 			var pwd = $(this).val();
-			$.post("<?php echo U('register/checkPwd');?>",{"pwd":pwd},function(flag){
+			$.post("<?php echo U('Register/checkPwd');?>",{"pwd":pwd},function(flag){
 				if(!flag){
 					layer.tips('密码6~10位<br />不能是纯数字<br />不能全部相同', '#regPwd', {tips: 2});
 				}
@@ -266,7 +266,7 @@
 		
 		$("#verify").blur(function(){
 			var verify = $(this).val();
-			$.post("<?php echo U('register/checkVerify');?>",{"verify":verify},function(flag){
+			$.post("<?php echo U('Register/checkVerify');?>",{"verify":verify},function(flag){
 				if(!flag){
 					layer.tips('验证码错误', '#verify', {tips: 3});
 				}

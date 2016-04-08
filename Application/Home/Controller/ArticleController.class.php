@@ -75,7 +75,7 @@ class ArticleController extends Controller {
 			$this->ajaxReturn($flag);
 		}
 		$data['article_time'] = date("Y-m-d H:i:s ");
-		$data['article_content'] = change_content(I('post.publish-cnt'));
+		$data['article_content'] = change_content($data['article_content']);
 		$Article = M('Article');
 		$lastInsert = $Article->add($data);
 		$Read = M('Read');
