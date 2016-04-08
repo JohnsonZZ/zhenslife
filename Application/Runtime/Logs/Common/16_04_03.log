@@ -1,0 +1,42 @@
+[ 2016-04-03T14:40:32+08:00 ] ::1 /think/myblog/index.php/bbs/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000478s ]
+ERR: 无法加载模块:Bbs
+
+[ 2016-04-03T14:43:18+08:00 ] ::1 /think/myblog/index.php/Article/index/id/3.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000039s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000622s ]
+ERR: 无法加载模块:Article
+
+[ 2016-04-03T14:43:41+08:00 ] ::1 /think/myblog/index.php/Article/index/id/3.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000428s ]
+ERR: 无法加载模块:Article
+
+[ 2016-04-03T14:46:44+08:00 ] ::1 /think/myblog/index.php/Index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000642s ]
+ERR: 无法加载模块:Index
+
+[ 2016-04-03T14:46:58+08:00 ] ::1 /think/myblog/index.php/Index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000072s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000981s ]
+ERR: 无法加载模块:Index
+
+[ 2016-04-03T14:50:55+08:00 ] ::1 /think/myblog/index.php/Article/index/id/3.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000435s ]
+ERR: 无法加载模块:Article
+
+[ 2016-04-03T14:53:57+08:00 ] ::1 /think/myblog/index.php/Article/index/code/12.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000455s ]
+ERR: 无法加载模块:Article
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://v3.bootcss.com/examples/blog/ -->
+<html lang="zh-CN">
+	<include file="Public/header" title="留言-博客"/>
+<body>
+	<include file="Public/nav"/>
+	<div class="container mt50">
+		<div class="row mt20">
+			<div class="col-sm-8">
+				<div class="bbs-wrap">
+				<div class="bbs-area">
+					<form action="#" method="post">
+					<div class="form-group">
+						<label class="bbs-label" for="bbstext">有什么事情要帮忙？博主看到就会回复你</label>
+						<textarea class="form-control" id="bbsText" style="resize:none" rows="3"></textarea>
+						<a class="bbs-emoji" id="bbs-emoji"><i></i>表情</a>
+						<button type="button" id="bbs-submit" class="btn btn-primary bbs-btn">发布</button>
+					</div>
+						 
+					</form>
+				</div>
+				<div id="bbs-wrap">
+					<volist name="bbsList" id="bbsList">
+					<div class="bbs-cmt mt10">
+						<div class="fl avatar">
+							<img class="img-responsive" alt="Responsive image" src="__PUBLIC__/images/touxiang.jpg" width="44px">
+						</div>
+						<div class="cmt-cnt">
+							<div class="cmt-hd">
+								<span class="text-primary"><{$bbsList.bbs_sender}></span>
+								<span class="pl10 f12">发于 <{$bbsList.bbs_time}></span>
+								<a class="fr" href="javascript:;">评论<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></a>
+							</div>
+							<div class="cmt-txt">
+							<p><{$bbsList.bbs_cnt}></p>
+							</div>
+						</div>
+					</div>
+					</volist>
+					<nav class="text-center">
+						<ul class="pagination">
+						<{$page}>
+						</ul>
+					</nav>
+				</div>
+			</div><!--End col-sm-8-->
+			</div>
+			<include file="Public/right"/>
+		</div><!--End row-->
+	</div><!--End container-->
+	<include file="Public/footer"/>
+	<script>
+		$(function(){
+			$("#bbs").addClass("active");
+			$("#bbs").siblings().removeClass("active");
+		});
+		$("#bbs-submit").click(function(){
+			var bbsCnt = $("#bbsText").val();
+			var bbsSender = "<{$userList.user}>"
+			var bbsUserid = "<{$userList.id}>"
+			if(bbsSender==''){
+				layer.msg('请先登录！');
+				return;
+			}
+			if(bbsCnt == ''){
+				layer.tips('主人写点什么再发送吧！','#bbsText',{tips:3});
+				return;
+			}else{
+				$("#bbs-submit").text("发送中..")
+				$.post("<{:U('bbs/checkBBS')}>",
+					{
+						bbsUserid : bbsUserid,
+						bbsSender : bbsSender,
+						bbsCnt : bbsCnt,
+					},
+					function(data){
+						$("#bbs-wrap").prepend('<div class="bbs-cmt mt10"><div class="fl avatar"><img class="img-responsive" alt="Responsive image" src="__PUBLIC__/images/touxiang.jpg" width="44px"></div><div class="cmt-cnt"><div class="cmt-hd"><span class="text-primary" id="bbsSender"></span><span class="pl10 f12" id="bbsTime"></span><a class="fr" href="javascript:;">评论<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></a></div><div class="cmt-txt"><p id="bbsCnt"></p></div></div></div>'); 
+						$("#bbsSender").text(data['bbs_sender']);
+						$("#bbsTime").text("发于 "+data['bbs_time']);
+						$("#bbsCnt").text(data['bbs_cnt']);
+						$("#bbsText").val("");
+						$("#bbs-submit").blur();
+						$("#bbs-submit").text("发布")
+					}
+				)
+			}
+ 		})
+	</script>
+</body>
+</html>

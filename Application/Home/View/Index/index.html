@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0036)http://v3.bootcss.com/examples/blog/ -->
+<html lang="zh-CN">
+<include file="Public/header" title="首页-博客"/>
+  <body>
+<include file="Public/nav"/>
+    <div class="container mt50">
+	  <img src="__PUBLIC__/images/header.jpg" class="img-responsive mt10" alt="Responsive image">
+      <div class="row mt10">
+        <div class="col-sm-8">
+		<ul class="nav nav-tabs">
+			<li class="active">
+				<a href="" data-toggle='tab'>热门</a>
+			</li>			
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="hot">
+				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<{:U('Home/Article/theme/id/12')}>">IT痴汉的工作现状</a><span class="fr">2016-03-19</span></p>
+				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">编程之法：面试和算法心得</a><span class="fr">2016-03-19</span></p>
+				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">APP快速开发：用这些工具更给力</a><span class="fr">2016-03-19</span></p>
+				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">基于thinkphp3.2开发的程序员博客</a><span class="fr">2016-03-19</span></p>
+			</div>
+		</div>
+		<ul class="nav nav-tabs">
+			<li id="branch4" class="active"><a href="" data-toggle='tab'>技术</a></li>
+			<li id="branch7"><a href="" data-toggle='tab'>HTML</a></li>
+			<li id="branch8"><a href="" data-toggle='tab'>CSS</a></li>
+			<li id="branch9"><a href="" data-toggle='tab'>JS</a></li>
+			<li id="branch10"><a href="" data-toggle='tab'>PHP</a></li>
+		</ul>
+		<div class="tab-content">
+			<volist name="articleList" id="vo" offset="0" length='5'>
+				<if condition="$i eq 1">
+				<div class="tab-pane active" id="article<{$vo[0].article_navid}>">
+					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<{:U('Home/Article/theme/id/'.$vo[0][article_id])}>"><{$vo[0].article_title}></a><span class="fr"><{$vo[0].article_time}></span></p>
+					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<{:U('Home/Article/theme/id/'.$vo[1][article_id])}>"><{$vo[1].article_title}></a><span class="fr"><{$vo[1].article_time}></span></p>
+					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<{:U('Home/Article/theme/id/'.$vo[2][article_id])}>"><{$vo[2].article_title}></a><span class="fr"><{$vo[2].article_time}></span></p>
+					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<{:U('Home/Article/theme/id/'.$vo[3][article_id])}>"><{$vo[3].article_title}></a><span class="fr"><{$vo[3].article_time}></span></p>				
+				</div>
+				<else />
+				<div class="tab-pane" id="article<{$vo[0].article_navid}>">
+					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<{:U('Home/Article/theme/id/'.$vo[0][article_id])}>"><{$vo[0].article_title}></a><span class="fr"><{$vo[0].article_time}></span></p>
+					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<{:U('Home/Article/theme/id/'.$vo[1][article_id])}>"><{$vo[1].article_title}></a><span class="fr"><{$vo[1].article_time}></span></p>
+					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<{:U('Home/Article/theme/id/'.$vo[2][article_id])}>"><{$vo[2].article_title}></a><span class="fr"><{$vo[2].article_time}></span></p>
+					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<{:U('Home/Article/theme/id/'.$vo[3][article_id])}>"><{$vo[3].article_title}></a><span class="fr"><{$vo[3].article_time}></span></p>				
+				</div>
+				</if>
+			</volist>
+		</div>
+		<ul class="nav nav-tabs">
+			<li id="branch5" class="active"><a href="" data-toggle='tab'>电竞</a></li>
+			<li id="branch11"><a href="" data-toggle='tab'>趣事</a></li>
+			<li id="branch12"><a href="" data-toggle='tab'>攻略</a></li>
+			<li id="branch13"><a href="" data-toggle='tab'>八卦</a></li>			
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="hot">
+				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<{:U('Home/Article/theme/id/12')}>">IT痴汉的工作现状</a><span class="fr">2016-03-19</span></p>
+				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">编程之法：面试和算法心得</a><span class="fr">2016-03-19</span></p>
+				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">APP快速开发：用这些工具更给力</a><span class="fr">2016-03-19</span></p>
+				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">基于thinkphp3.2开发的程序员博客</a><span class="fr">2016-03-19</span></p>
+			</div>
+		</div>
+		<ul class="nav nav-tabs">
+			<li id="branch6" class="active"><a href="" data-toggle='tab'>闲聊</a></li>
+		</ul>
+		<div class="tab-content">
+			<volist name="articleList" id="vo" offset="9" length='1'>
+				<div class="tab-pane active" id="article<{$vo[0].article_navid}>">
+					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<{:U('Home/Article/theme/id/'.$vo[0][article_id])}>"><{$vo[0].article_title}></a><span class="fr"><{$vo[0].article_time}></span></p>
+					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<{:U('Home/Article/theme/id/'.$vo[0][article_id])}>"><{$vo[1].article_title}></a><span class="fr"><{$vo[1].article_time}></span></p>
+					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<{:U('Home/Article/theme/id/'.$vo[0][article_id])}>"><{$vo[2].article_title}></a><span class="fr"><{$vo[2].article_time}></span></p>
+					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<{:U('Home/Article/theme/id/'.$vo[0][article_id])}>"><{$vo[3].article_title}></a><span class="fr"><{$vo[3].article_time}></span></p>				
+				</div>
+			</volist>
+		</div>
+        </div><!-- /.blog-main -->
+		<include file="Public/right"/>
+        
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+
+	<include file="Public/footer"/>
+
+
+   
+ 	<script>
+		<volist name="articleList" id="vo" offset="0" length='5'>
+			$("#branch<{$vo[0].article_navid}>").click(function(){
+				$("#article<{$vo[0].article_navid}>").addClass("active");
+				$("#article<{$vo[0].article_navid}>").siblings().removeClass("active");
+			});
+		</volist>
+	</script>
+
+</body>
+</html>

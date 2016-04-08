@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://v3.bootcss.com/examples/blog/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
+
+    <title>博客</title>
+	
+    <link rel="stylesheet" href="__PUBLIC__/css/base.css" />
+	
+    <!-- Bootstrap core CSS --> 
+    <link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="__ROOT__/Application/Home/Common/css/blog.css" />
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="__ROOT__/Application/Home/Common/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top bg-white">
+	  <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  <a class="navbar-brand" href="#">Brand</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		  <ul class="nav navbar-nav">
+			<li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>
+			<volist name="navList" id="vo">
+					<if condition="($vo.child eq null) AND ($vo.nav_id gt 1)">
+						<li><a href="<{:U('bbs/index')}>"><{$vo.nav_name}> </a></li>
+					<elseif condition="$vo.child neq null"/>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><{$vo.nav_name}> <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+							<volist name="vo.child" id="child">
+								<if condition="$i eq 1">
+									<li><a href="#"><{$child.nav_name}> </a>
+								<else />
+									<li role="separator" class="divider"></li>		
+									<li><a href="#"><{$child.nav_name}> </a>
+								</if>							
+							</volist>
+							</ul>
+						</li>
+					</if>				
+				</volist>
+		  </ul>
+		  <ul class="nav navbar-nav navbar-right">
+			<li><a href="#">Link</a></li>
+			<li class="dropdown">
+			  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+			  <ul class="dropdown-menu">
+				<li><a href="#">Action</a></li>
+				<li><a href="#">Another action</a></li>
+				<li><a href="#">Something else here</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#">Separated link</a></li>
+			  </ul>
+			</li>
+		  </ul>
+		  <form class="navbar-form navbar-right" role="search">
+			<div class="input-group">
+			  <input type="text" class="form-control" placeholder="Search" />
+				  <span class="input-group-btn">
+					  <button type="submit" class="btn btn-default">
+						<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+					  </button>
+				  </span>
+			</div>
+			
+		  </form>
+		 
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+    <div class="container mt50">
+	  <img src="__ROOT__/Application/Home/Common/images/header.jpg" class="img-responsive mt10" alt="Responsive image">
+      <div class="row mt10">
+        <div class="col-sm-8">
+		<ul class="nav nav-tabs">
+			<li class="active">
+				<a href="" data-toggle='tab'>热门</a>
+			</li>			
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="hot">
+				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<{:U('Article/index/code/12')}>">IT痴汉的工作现状</a><span class="fr">2016-03-19</span></p>
+				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">编程之法：面试和算法心得</a><span class="fr">2016-03-19</span></p>
+				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">APP快速开发：用这些工具更给力</a><span class="fr">2016-03-19</span></p>
+				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">基于thinkphp3.2开发的程序员博客</a><span class="fr">2016-03-19</span></p>
+			</div>
+		</div>
+		<foreach name="list" item="contentList">
+		<ul class="nav nav-tabs">		
+				<li id="list<{$contentList.nav_id}>" class="active">
+					<a data-toggle='tab'><{$contentList.nav_name}></a>
+				</li>
+				<volist name="contentList.child" id="child">
+					<li id="list<{$child.nav_id}>">
+						<a data-toggle='tab'><{$child.nav_name}></a>
+					</li>
+				</volist>
+						
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="content<{$key}>">
+				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">IT痴汉的工作现状</a><span class="fr">2016-03-19</span></p>
+				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">编程之法：面试和算法心得</a><span class="fr">2016-03-19</span></p>
+				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">APP快速开发：用这些工具更给力</a><span class="fr">2016-03-19</span></p>
+				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">基于thinkphp3.2开发的程序员博客</a><span class="fr">2016-03-19</span></p>
+			</div>
+		</div>
+		</foreach>
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-4">
+          <div class="bg-white text-center mb20 pb20">
+			<div class="p10" style="background-color:#B4DAF0">
+			<img src="__PUBLIC__/images/touxiang.jpg" alt="头像" class="img-circle mb5" width="80px" height="80px" />
+            <h4 class="no-margin">Admin</h4>
+			</div>
+			
+            <div class="row">
+				 <div class="col-sm-1 ml10"></div>
+				 <div class="col-sm-3 blog-border-right mt5">
+					<a href="#">关注 <span class="badge">42</span></a>
+				 </div>
+				 <div class="col-sm-3 blog-border-right mt5">
+				    <a href="#">说说 <span class="badge">22</span></a>
+				 </div>
+				 <div class="col-sm-3 mt5">
+					<a href="#">留言 <span class="badge">32</span></a>
+				 </div>
+			</div>
+          </div>
+          <div class="panel panel-default">
+				<div class="panel-heading">
+					公告栏
+					<a href="#" class="text-muted fr">>></a>
+				</div>
+				<ul class="list-group">
+					<li class="list-group-list"><a href="" class="text-muted">基于ThinkPHP的博客系统</a></li>
+					<li class="list-group-list"><a href="" class="text-muted">17款最佳的代码审查工具</a></li>
+					<li class="list-group-list"><a href="" class="text-muted">Swift2.0编程中文版</a></li>
+					<li class="list-group-list"><a href="" class="text-muted">前端页面加载jquery</a></li>
+					<li class="list-group-list"><a href="" class="text-muted">August 2013</a></li>
+				</ul>
+		  </div>
+		  <div class="panel panel-default">
+				<div class="panel-heading">
+					最新留言
+					<a href="#" class="text-muted fr">>></a>
+				</div>
+				<ul class="list-group">
+					<li class="list-group-list"><a href="" class="text-muted">TP官网讨论区按 版本筛选.</a></li>
+					<li class="list-group-list"><a href="" class="text-muted">错误类型是否可以指定</a></li>
+					<li class="list-group-list"><a href="" class="text-muted">加入BUG修复更新功能</a></li>
+					<li class="list-group-list"><a href="" class="text-muted">显示年份信息</a></li>
+					<li class="list-group-list"><a href="" class="text-muted">简单引用js二维码生成案例</a></li>
+				</ul>
+		  </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>Blog template built for Bootstrap by Johnson</p>
+      <p>
+        <a href="javascript:scroll(0,0)">返回顶部</a>
+      </p>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="__PUBLIC__/js/jquery.js"></script>
+	<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="__ROOT__/Application/Home/Common/js/ie10-viewport-bug-workaround.js"></script>
+	<script>
+		<volist name="list" id="click">
+			$("list<{$click.nav_id}>").click(function(){
+				
+			});
+			
+		</volist>
+	</script>
+
+</body></html>

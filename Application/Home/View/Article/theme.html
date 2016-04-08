@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0036)http://v3.bootcss.com/examples/blog/ -->
+<html lang="zh-CN">
+	<include file="Public/header"/>
+<body>
+	<include file="Public/nav"/>
+		<div class="container mt50">
+			<div class="row mt10">
+				<div class="col-sm-9">
+					<div class="box detail-box">
+						<div class="article-head">
+							<div class="title-head">
+								<h2><{$article_title}></h2>
+							</div>
+							<div class="title-foot">
+								<span>浏览：<{$read}></span>
+								<span> 发布日期：<{$article_time}></span> 
+								<span> 分类：<{$article_nav}></span>
+							</div>
+						</div>
+						<div class="article-text">
+							<{$article_content}>
+						</div>
+						<div class="da_word"></div>
+					</div>
+					<div class="box cmt-box">
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a class="cmt-border" href="" data-toggle='tab'>评论</a>
+							</li>			
+						</ul>
+						<div class="cmt-wrap" id="cmt-wrap">
+						<volist name="commentList" id="fCmt">
+							<div class="cmt-item review-item">
+								<div class="fl avatar">
+									<img class="img-responsive" alt="Responsive image" src="__PUBLIC__/images/touxiang.jpg" width="44px">
+								</div>
+								<div class="cmt-cnt" id="cnt<{$fCmt.cmt_id}>">
+									<div class="cmt-hd">
+										<span class="text-primary"><{$fCmt.cmt_user}></span>
+										<span class="pl10"><{$fCmt.cmt_time}></span>
+										<a class="fr" href="javascript:;" user="<{$fCmt.cmt_user}>" reply="<{$fCmt.cmt_id}>">回复<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></a>
+									</div>
+									<div class="cmt-txt">
+										<p><{$fCmt.cmt_cnt}></p>
+									</div>
+								
+								<volist name="fCmt.cmt_child" id="sCmt">
+									<div class="cmt-item reply-item">
+										<div class="fl avatar">
+											<img class="img-responsive" alt="Responsive image" src="__PUBLIC__/images/touxiang.jpg" width="44px">
+										</div>
+										<div class="cmt-cnt" id="cnt<{$sCmt.cmt_id}>">
+											<div class="cmt-hd">
+												<span class="text-primary"><{$sCmt.cmt_user}></span>
+												<span>回复</span>
+												<span class="text-primary"><{$sCmt.cmt_getter}></span>
+												<span class="pl10"><{$sCmt.cmt_time}></span>
+												<a class="fr" href="javascript:;" user="<{$sCmt.cmt_user}>" reply="<{$fCmt.cmt_id}>">回复<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></a>
+											</div>
+											<div class="cmt-txt">
+												<p><{$sCmt.cmt_cnt}></p>
+											</div>
+										</div>
+									</div>
+								</volist>
+								</div>
+							</div>
+						</volist>
+							<div id="reply-form" class="cmt-form">
+								<div class="fl avatar">
+									<img class="img-responsive" alt="Responsive image" src="__PUBLIC__/images/touxiang.jpg" width="44px">
+								</div>
+								<div class="mt5 pl50">
+									<div class="form-group">
+										<label class="sr-only" for="comment">comment</label>
+										<input type="text" class="form-control cmt-width" id="comment" user="<{$article_user}>" pid="0" placeholder="我也来说两句..">
+									</div>
+									<button id="cmt-btn" class="btn btn-primary ml10">评论</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="sidebar">
+						<div class="sn-wrap">
+							<div class="count-box">
+								<dl class="count-item fl">
+									<dt>
+										<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+										收藏
+									</dt>
+									<dd class="cib"><{$collect}></dd>
+								</dl>
+								<dl class="count-item fl">
+									<dt>
+										<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+										点赞
+									</dt>
+									<dd class="cib"><{$like}></dd>
+								</dl>
+								<dl class="count-item fr">
+									<dt>
+										<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+										评论
+									</dt>
+									<dd class="cib"><{$cmt}></dd>
+								</dl>
+							</div>
+						</div>
+						<div class="box promulgator">
+							<div class="avatar">
+								<img class="img-responsive" alt="Responsive image" src="__PUBLIC__/images/touxiang.jpg" width="44px">
+							</div>
+							<div class="pro-name black">
+								<{$article_user}>
+							</div>
+							<span> 等级：LV1</span>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">								
+								热点推荐<a href="#" class="text-muted fr">>></a>
+							</div>
+							<ul class="list-group">
+								<li class="list-group-list"><a href="" class="text-muted">基于ThinkPHP的博客系统</a></li>
+								<li class="list-group-list"><a href="" class="text-muted">17款最佳的代码审查工具</a></li>
+								<li class="list-group-list"><a href="" class="text-muted">Swift2.0编程中文版</a></li>
+								<li class="list-group-list"><a href="" class="text-muted">前端页面加载jquery</a></li>
+								<li class="list-group-list"><a href="" class="text-muted">August 2013</a></li>
+				  			</ul>
+				        </div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								公告栏<a href="#" class="text-muted fr">>></a>
+							</div>
+							<ul class="list-group">
+								<li class="list-group-list"><a href="" class="text-muted">TP官网讨论区按 版本筛选.</a></li>
+								<li class="list-group-list"><a href="" class="text-muted">错误类型是否可以指定</a></li>
+								<li class="list-group-list"><a href="" class="text-muted">加入BUG修复更新功能</a></li>
+								<li class="list-group-list"><a href="" class="text-muted">显示年份信息</a></li>
+								<li class="list-group-list"><a href="" class="text-muted">简单引用js二维码生成案例</a></li>
+							</ul>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<include file="Public/footer"/>
+
+	<script>
+	$(function(){
+			$("#article").addClass("active");
+			$("#article").siblings().removeClass("active");
+	});
+	$("a").click(function(event){
+		if($(this).attr("reply")!==undefined){
+		    var reply = $(this).attr("reply");
+			var user = $(this).attr("user");
+			var att = "#cnt" + reply;
+			$(att).append($("#reply-form"));
+			$("#comment").focus();
+			$("#comment").attr("user",user);
+			$("#comment").attr("pid",reply);
+			event.stopPropagation();
+		}
+	})
+	$("#reply-form").click(function(event){
+		event.stopPropagation();
+	});
+	$(document).click(function(){
+		$("#cmt-wrap").append($("#reply-form"));
+		$("#comment").attr("user","<{$article_user}>");
+		$("#comment").attr("pid","0");
+	});
+	$("#cmt-btn").click(function(){
+		$("#comment").text("提交中..");
+		$.post("<{:U('article/sendCmt')}>",
+			{
+			user: "<{$userList}>",
+			getter:$("#comment").attr("user"),
+			pid : $("#comment").attr("pid"),
+			cnt : $("#comment").val(),
+			articleid : <{$article_id}>
+			},
+			function(data){
+				switch(data){
+					case 0:layer.msg('请用正确的语言进行回复！'); break;
+					case 1:layer.msg('请先登录！'); break;
+					case 2: 
+						layer.msg('回复成功');
+						location.reload();
+						break;
+				}
+				
+			}
+		)
+	})
+	</script>
+</body>
+</html>
+	

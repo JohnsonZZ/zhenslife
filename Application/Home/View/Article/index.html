@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<include file="Public/header" title="文章-博客"/>
+	
+<body>
+	<include file="Public/nav"/>
+		<div class="container mt50">
+			<div class="row mt10">
+				<div class="col-sm-8">
+					<div class="article-hd bg-white">
+						<ol id="branchLish" class="breadcrumb bg-white fl no-margin">
+							<li><a href="<{:U('Home/Article/index/list/0')}>">所有分类</a></li>
+						</ol>
+						<form id="select-form" method="get" action="<{:U('Home/Article/index')}>">
+							<select id="select-article" class="article-select fr">
+								<option value="0">所有分类</option>
+								<volist name="navList" id="nList">
+								<option value="<{$nList.nav_id}>"><{$nList.nav_name}></option>
+								</volist>	
+							</select>
+							<input type="hidden" id="list" name="list" value="0" />
+						<form>
+					</div>
+					
+					<volist name="articleList" id="aList">
+						<div class="list-group list-group-mb">
+							<div class="list-group-item">
+								<h4><a href="<{:U('Home/Article/theme/id/'.$aList[article_id])}>"><{$aList.article_title}></a><small class="pull-right">发布时间：<{$aList.article_time}> </small></h4>
+								<p>
+									<span>作者：<{$aList.article_user}> </span>
+									<span class="pl20">浏览:<{$aList.article_read}></span>
+									<small class="pull-right">
+										<span class="badge bg-info">留言:<{$aList.article_cmt}></span>
+										<span class="badge bg-info">点赞:<{$aList.article_like}></span>
+									</small>
+								</p>
+							</div>
+						</div>
+					</volist>	
+					<nav class="text-center">
+						<ul class="pagination">
+							<{$page}>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-sm-4">
+					<a href="<{:U('Home/Article/publish')}>" class="upload-app">
+						<span class="glyphicon glyphicon-hand-up"></span>
+						发布文章
+					</a>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+						<span class="glyphicon glyphicon-pencil"></span>
+						公告栏<a href="#" class="text-muted fr">>></a>
+						</div>
+						<ul class="list-group">
+							<li class="list-group-list"><a href="" class="text-muted">基于ThinkPHP的博客系统</a></li>
+							<li class="list-group-list"><a href="" class="text-muted">17款最佳的代码审查工具</a></li>
+							<li class="list-group-list"><a href="" class="text-muted">Swift2.0编程中文版</a></li>
+							<li class="list-group-list"><a href="" class="text-muted">前端页面加载jquery</a></li>
+							<li class="list-group-list"><a href="" class="text-muted">August 2013</a></li>
+						</ul>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<span class="glyphicon glyphicon-fire"></span>
+							最新留言<a href="#" class="text-muted fr">>></a>
+						</div>
+						<ul class="list-group">
+							<li class="list-group-list"><a href="" class="text-muted">TP官网讨论区按 版本筛选.</a></li>
+							<li class="list-group-list"><a href="" class="text-muted">错误类型是否可以指定</a></li>
+							<li class="list-group-list"><a href="" class="text-muted">加入BUG修复更新功能</a></li>
+							<li class="list-group-list"><a href="" class="text-muted">显示年份信息</a></li>
+							<li class="list-group-list"><a href="" class="text-muted">简单引用js二维码生成案例</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	<include file="Public/footer"/>
+	<script>
+	$(function(){
+			$("#article").addClass("active");
+			$("#article").siblings().removeClass("active");
+			var selectid = "<{$selectid}>";
+			if(selectid!='0'){
+			    var selectText= $("#select-article  option[value='"+selectid+"']").text();
+				$("#branchLish").append("<li class='active'>"+selectText+"</li>");
+				$("#select-article  option[value='"+selectid+"']").attr("selected", "selected"); 	
+			}
+		});
+	 
+	$("#select-form").change(function(){
+	var selectValue = $("#select-article").val();
+		$("#list").val(selectValue);
+		$(this).submit();
+	});
+	</script>
+</body>
+</html>
+	
