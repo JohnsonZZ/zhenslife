@@ -1,0 +1,74 @@
+	<div id="nav-left" class="nav-left">
+		<div class="text-center">
+			<img src="__PUBLIC__/images/touxiang.jpg" alt="头像" class="img-circle mb5" width="80px" height="80px" />
+			<div class="username">攻城狮</div>
+			<div class="usercolor">admin <span id="log-out" class="glyphicon glyphicon-log-out" aria-hidden="true"></span></div>
+		</div>
+		<div id="contentLeft">
+			<ul id="leftNavigation">
+				<li class="active">
+					<a><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 网站首页</a>
+					<ul>
+						<li>
+							<a href="<{:U('Home/Index/index')}>"><span class="glyphicon glyphicon-menu-right"></span> 前台首页</a>
+						</li>
+						<li class="active">
+							<a href="<{:U('Admin/Index/index')}>"><span class="glyphicon glyphicon-menu-right"></span> 后台首页</a>
+						</li>
+					</ul>
+				</li>
+				
+				<li>
+					<a><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 网站设置</a>
+					<ul>
+						<li>
+							<a href="#"><span class="glyphicon glyphicon-menu-right"></span> 网站管理</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 文章管理</a>
+					<ul>
+						<li>
+							<a href="<{:U('Admin/Article/classify')}>"><span class="glyphicon glyphicon-menu-right"></span> 文章分类</a>
+						</li>
+						<li>
+							<a href="<{:U('Admin/Article/addClassify')}>"><span class="glyphicon glyphicon-menu-right"></span> 添加分类</a>
+						</li>
+						<li>
+							<a href="<{:U('Admin/Article/article')}>"><span class="glyphicon glyphicon-menu-right"></span> 文章查看</a>
+						</li>
+						<li>
+							<a href="<{:U('Admin/Article/addArticle')}>"><span class="glyphicon glyphicon-menu-right"></span> 文章添加</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 留言管理</a>
+					<ul>
+						<li>
+							<a href="#"><span class="glyphicon glyphicon-menu-right"></span> 留言查看</a>
+						</li>
+						<li>
+							<a href="#"><span class="glyphicon glyphicon-menu-right"></span> 留言添加</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 会员管理</a>
+					<ul>
+						<li>
+							<a href="#"><span class="glyphicon glyphicon-menu-right"></span> 会员查看</a>
+						</li>
+						<li>
+							<a href="#"><span class="glyphicon glyphicon-menu-right"></span> 会员添加</a>
+						</li>
+					</ul>
+				</li>
+				<li class="clickable">
+					<a href="#"><span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true"></span> 联系我们</a>
+				</li>
+
+			</ul>
+		</div>
+	</div>

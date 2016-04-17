@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<include file="Public/header" title="文章查看-后台" />
+<body>
+	<include file="Public/nav" />
+	<div id="test-right" class="test-right">
+		<include file="Public/search" />
+		<div class="bg-log mt20">
+			<table class="table table-striped table-bordered bg-white table-hover">
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th>标题</th>
+						<th>内容</th>
+						<th class="center">修改</th>
+						<th class="center">删除</th>		
+					</tr>
+				</thead>
+				<tbody>
+					<volist name="articleList" id="val">
+					<tr>
+						<td><{$val['article_id']}></td>
+						<td><{$val['article_title']}></td>
+						<td><{$val['article_content']|msubstr=0,20,'utf-8'}></td>
+						<td class="center">
+							<a edit="<{$val['article_id']}>"><span class="glyphicon glyphicon-pencil"></span></a>
+						</td>
+						<td class="center">
+							<a delete="<{$val['article_id']}>"><span class="glyphicon glyphicon-remove"></span></a>
+						</td>
+					</tr>
+					</volist>
+					<tr>
+						<td class="center" colspan="4">
+							<a add="add"><span class="glyphicon glyphicon-plus-sign"></span>添加文章</a>
+						</td>
+					</tr>
+				</tbody>	
+			</table>
+			<nav class="text-center">
+				<ul class="pagination">
+					<{$page}>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<include file="Public/footer" />
+</body>
+</html>

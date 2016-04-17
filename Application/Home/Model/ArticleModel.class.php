@@ -67,4 +67,14 @@ class ArticleModel extends Model {
 			}
 		return $list;
 	}
+	public function get_hot(){
+		$Read = M('Read');
+		$hotList = $Read->order('read_count desc')->limit(5)->select();
+		foreach($hotList as &$hList){
+			$Article = M('Article');
+			$title = $Article->field('article_title')->where("article_id=$hList[read_articleid]")->find();
+			$hList['title'] = $title['article_title'];
+		}
+		return $hotList;
+	}
 }

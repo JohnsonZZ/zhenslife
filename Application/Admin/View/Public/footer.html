@@ -1,0 +1,35 @@
+<script src="__PUBLIC__/js/jquery.js"></script>
+<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/js/layer/layer.js"></script>
+<script src="__PUBLIC__/js/jquery.ssd-vertical-navigation.min.js"></script>
+<script src="__PUBLIC__/js/admin.js"></script>
+<script>
+$("#collapse").click(
+	function(){
+		if($(this).hasClass("active")){
+			$("#nav-left").show();
+			$("#test-right").css("marginLeft","220px");
+			$("#collapse").removeClass("active");
+		}else{
+			$("#nav-left").hide();
+			$("#test-right").css("marginLeft","0px");
+			$("#collapse").addClass("active");				
+		}
+	}
+);
+$("#admin").click(function(){
+	location.href="<{:U('Admin/Index/index')}>";
+})
+$("#log-out").click(function(){
+		layer.open({
+			icon : 0,
+			title: '提示',
+			type: 0, 
+			content: '确认退出',
+			btn: ['确认', '取消'],
+			yes: function(){
+				location.href="<{:U('Admin/Login/loginOut')}>";
+			}
+		});	
+	});	
+</script>

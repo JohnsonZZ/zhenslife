@@ -60,8 +60,11 @@ function check_content($cnt){
 }
 //Change the publish content
 function change_content($cnt){
-	$cnt=str_replace("\r\n","<br />",$cnt); 
+	$cnt=str_replace(" ","&nbsp",$cnt); 
+	$cnt=str_replace("\n","<br />",$cnt); 
+	$cnt=str_replace("http://","",$cnt); 
 	$cnt=preg_replace("/\[b\](.*?)\[\/b\]/i","<b>\${1}</b>",$cnt);
+	$cnt=preg_replace("/\[code\](.*?)\[\/code\]/i","<pre>\${1}</pre>",$cnt);
 	$cnt=preg_replace("/\[url\](.*?)\[\/url\]/i","<a href='http://\${1}' target='_blank'>\${1}</a>",$cnt);
 	return $cnt;
 }

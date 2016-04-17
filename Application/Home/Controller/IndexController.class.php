@@ -6,13 +6,23 @@ class IndexController extends Controller {
     public function index(){
 		$Article = D('Article');
 		$articleList = $Article->get_article();
+		$hotList= $Article->get_hot();
 		$User = D('User');
 		$userList = $User->get_BAF(session('id'));
 		$userList['user'] = session('user');
 		$userList['id'] = session('id');
+		if(isset($userList['id'])){
+			$Info = M('Info');
+			$infoList = $Info->field('info_email,info_intro')->where("info_userid=$userList[id]")->find();
+		}else{
+			$infoList['info_intro'] = "您是游客，欢迎注册！";
+			$infoList['info_email'] = "官方邮箱465629989@qq.com";
+		}
 		$this->assign('navList',$navList);
 		$this->assign('userList',$userList);
 		$this->assign('articleList',$articleList);
+		$this->assign('infoList',$infoList);
+		$this->assign('hotList',$hotList);
 		$this->display();
 	}
 	public function insertpwd(){

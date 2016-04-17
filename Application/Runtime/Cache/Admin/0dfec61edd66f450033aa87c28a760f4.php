@@ -3,13 +3,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>后台</title>
-<link rel="stylesheet" href="/think/myblog/Public/css/base.css" />
-<link rel="stylesheet" href="/think/myblog/Public/css/bootstrap.min.css" />
-<link rel="stylesheet" href="/think/myblog/Application/Admin/Common/css/login.css" />
+<link rel="stylesheet" href="/myblog/Public/css/base.css" />
+<link rel="stylesheet" href="/myblog/Public/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/myblog/Public/css/admin.css" />
 </head>
 <body>
 	<div class="webbg"> 
-		<img style="position:fixed;" src="/think/myblog/Application/Admin/Common/images/11.jpg" height="100%" width="100%" /> 
+		<img style="position:fixed;" src="/myblog/Public/images/11.jpg" height="100%" width="100%" /> 
 	</div>
 	<div class="container">
 		<div class="row">
@@ -26,7 +26,7 @@
 							——攻城狮.即将爆炸的程序员
 						</div>
 					</div>
-					<form action="/think/myblog/index.php/Admin/Login/checklogin" method="post" class="login-form" role="form">
+					<form action="/myblog/index.php/Admin/Login/checkLogin" method="post" class="login-form" role="form">
 						<label for="account" class="sr-only">用户名</label>
 						<div class="input-group input-box">
 							<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>	
@@ -58,8 +58,8 @@
 		</div>
 	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/think/myblog/Public/js/jquery.js"></script>
+    <script src="/myblog/Public/js/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="/think/myblog/Public/js/bootstrap.min.js"></script>
+	<script src="/myblog/Public/js/bootstrap.min.js"></script>
 </body>
 </html>

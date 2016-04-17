@@ -22,6 +22,7 @@ class ArticleController extends Controller {
 			}
 		}
 		$articleList = $Article->get_RUCL($articleList);
+		$hotList= $Article->get_hot();
 		$Page->setConfig('prev', '上一页');
 		$Page->setConfig('next', '下一页');
 		$Page->setConfig('header','');
@@ -30,10 +31,12 @@ class ArticleController extends Controller {
 		$this->assign('page', $show); // 赋值分页输出
 		$this->assign('navList',$navList);		
 		$this->assign('userList',$userList);	
+		$this->assign('hotList',$hotList);
 		$this->display();
 	}
 	public function theme(){
 		$Article = D('Article');
+	    $hotList= $Article->get_hot();
 		$articleList = $Article->get_list(I('get.id'));
 		$count = $Article->get_RCLC(I('get.id'));
 		$Comment = D('cmt');
@@ -42,6 +45,7 @@ class ArticleController extends Controller {
 		$this->assign('userList',$userList);
 		$this->assign($articleList);
 		$this->assign('commentList',$commentList);
+		$this->assign('hotList',$hotList);
 		$this->assign($count);
 		$this->display();
 	}

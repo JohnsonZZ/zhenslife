@@ -82,7 +82,9 @@ class RegisterController extends Controller {
 		}else{
 			$data['salt']=base64_encode(mcrypt_create_iv(32,MCRYPT_DEV_RANDOM));
 			$data['pwd']=sha1($data['pwd'].$data['salt']);
-			$User->add($data);
+			$last['info_userid'] = $User->add($data);
+			$Info = M('Info');
+			$Info -> add($last);
 			$ajax['status']=1;
 			$this->ajaxReturn($ajax);
 		}	

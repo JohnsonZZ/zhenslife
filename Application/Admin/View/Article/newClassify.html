@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<include file="Public/header" title="添加分类-后台" />
+<body>
+	<include file="Public/nav" />
+	<div id="test-right" class="test-right">
+		<include file="Public/search" />
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-5 control-label">归属分类</label>
+				<div class="col-sm-2">
+					<select class="form-control">
+						<option>顶级分类</option>
+						<volist name="navList" id="val">
+							<option>┗<{$val['nav_name']}></option>
+						</volist>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputName" class="col-sm-5 control-label">分类名</label>
+				<div class="col-sm-2">
+					<input type="text" class="form-control" id="inputName" placeholder="新的分类名">
+				</div>
+			</div>
+		</form>
+		
+	</div>
+	<include file="Public/footer" />
+</body>
+</html>

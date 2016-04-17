@@ -51,20 +51,18 @@
 					<div class="panel panel-default">
 						<div class="panel-heading">
 						<span class="glyphicon glyphicon-pencil"></span>
-						公告栏<a href="#" class="text-muted fr">>></a>
+						热门推荐<a href="#" class="text-muted fr">>></a>
 						</div>
 						<ul class="list-group">
-							<li class="list-group-list"><a href="" class="text-muted">基于ThinkPHP的博客系统</a></li>
-							<li class="list-group-list"><a href="" class="text-muted">17款最佳的代码审查工具</a></li>
-							<li class="list-group-list"><a href="" class="text-muted">Swift2.0编程中文版</a></li>
-							<li class="list-group-list"><a href="" class="text-muted">前端页面加载jquery</a></li>
-							<li class="list-group-list"><a href="" class="text-muted">August 2013</a></li>
+							<volist name="hotList" id="hList">
+								<li class="list-group-list"><a href="<{:U('Home/Article/theme/id/'.$hList[read_articleid])}>" class="text-muted"><{$hList.title}></a></li>
+							</volist>
 						</ul>
 					</div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<span class="glyphicon glyphicon-fire"></span>
-							最新留言<a href="#" class="text-muted fr">>></a>
+							公告栏<a href="#" class="text-muted fr">>></a>
 						</div>
 						<ul class="list-group">
 							<li class="list-group-list"><a href="" class="text-muted">TP官网讨论区按 版本筛选.</a></li>

@@ -1,0 +1,21 @@
+$(function() {
+    $('#leftNavigation').ssdVerticalNavigation();
+	if($(window).width()<767){
+			$("#nav-left").hide();
+			$("#test-right").css("marginLeft","0px");
+			$("#collapse").addClass("active");	
+	}
+});
+$(window).resize(
+	function(){
+		if($(window).width()>767){
+			$("#nav-left").show();
+			$("#test-right").css("marginLeft","220px");
+			$("#collapse").removeClass("active");
+		}else{
+			$("#nav-left").hide();
+			$("#test-right").css("marginLeft","0px");
+			$("#collapse").addClass("active");				
+		}
+	}
+);

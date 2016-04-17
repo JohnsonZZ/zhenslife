@@ -1,0 +1,26 @@
+	<div id="nav-left" class="nav-left">
+		<div class="text-center">
+			<img src="__PUBLIC__/images/touxiang.jpg" alt="头像" class="img-circle mb5" width="80px" height="80px" />
+			<div class="username">攻城狮</div>
+			<div class="usercolor">admin <span id="log-out" class="glyphicon glyphicon-log-out" aria-hidden="true"></span></div>
+		</div>
+		<div id="contentLeft">
+			<ul id="leftNavigation">
+				<li id="admin">
+					<a><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 控制台</a>
+				</li>
+				<volist name="nav" id="cnav">
+				<li>
+					<a href="<{:U('Admin/Index/index')}>"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> <{$cnav.nav}></a>
+				    <ul>
+						<volist name="cnav.child" id="snav">
+						<li>
+							<a href="<{:U('Admin/'.$snav[href])}>"><span class="glyphicon glyphicon-menu-right"></span> <{$snav.nav}></a>
+						</li>
+						</volist>
+					</ul>
+				</li>
+				</volist>
+			</ul>
+		</div>
+	</div>

@@ -3,7 +3,6 @@
 <html lang="zh-CN">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
@@ -34,7 +33,7 @@
       <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-  <body>
+<body>
 <nav class="navbar navbar-inverse navbar-fixed-top ">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -50,7 +49,7 @@
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		    <ul class="nav navbar-nav">
+		    <ul class="nav navbar-nav" id="navlist">
 				<li id="index" class="active"><a href="<?php echo U('Index/index');?>">首页 <span class="sr-only">(current)</span></a></li>
 				<li id="bbs"><a href="<?php echo U('Bbs/index');?>">留言 </a></li>
 				<li id="article"><a href="<?php echo U('Article/index');?>">文章 </a></li>
@@ -74,8 +73,8 @@
 						
 					</a>
 					<ul class="dropdown-menu">
-						<li><a>个人中心</a></li>
-						<li id="quit"><a href="#">退出</a></li>
+						<li><a href="<?php echo U('Home/Account/index');?>">个人中心</a></li>
+						<li id="quit"><a href="javascript:;">退出</a></li>
 				    </ul><?php endif; ?>
 				</li>
 			</ul>
@@ -170,11 +169,11 @@
 
 			<div class="message">
 				<div class="abstract">
-					这个人很懒，什么都没留下....
+					<?php echo ($infoList["info_intro"]); ?>
 				</div>
 				<div class="contact">
 					<span class="glyphicon glyphicon-envelope"></span>
-					465629989@qq.com
+					<?php echo ($infoList["info_email"]); ?>
 				</div>
 			</div>
 		</div>
@@ -187,6 +186,15 @@
 			</div>
 		</div>
 	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<span class="glyphicon glyphicon-fire"></span>
+			热门推荐<a href="#" class="text-muted fr">>></a>
+		</div>
+		<ul class="list-group">
+		<?php if(is_array($hotList)): $i = 0; $__LIST__ = $hotList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$hList): $mod = ($i % 2 );++$i;?><li class="list-group-list"><a href="<?php echo U('Home/Article/theme/id/'.$hList[read_articleid]);?>" class="text-muted"><?php echo ($hList["title"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+		</ul>
+	</div>
     <div class="panel panel-default">
 		<div class="panel-heading">
 			<span class="glyphicon glyphicon-pencil"></span>
@@ -198,20 +206,6 @@
 			<li class="list-group-list"><a href="" class="text-muted">Swift2.0编程中文版</a></li>
 			<li class="list-group-list"><a href="" class="text-muted">前端页面加载jquery</a></li>
 			<li class="list-group-list"><a href="" class="text-muted">August 2013</a></li>
-		</ul>
-	</div>
-		
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<span class="glyphicon glyphicon-fire"></span>
-			最新留言<a href="#" class="text-muted fr">>></a>
-		</div>
-		<ul class="list-group">
-			<li class="list-group-list"><a href="" class="text-muted">TP官网讨论区按 版本筛选.</a></li>
-			<li class="list-group-list"><a href="" class="text-muted">错误类型是否可以指定</a></li>
-			<li class="list-group-list"><a href="" class="text-muted">加入BUG修复更新功能</a></li>
-			<li class="list-group-list"><a href="" class="text-muted">显示年份信息</a></li>
-			<li class="list-group-list"><a href="" class="text-muted">简单引用js二维码生成案例</a></li>
 		</ul>
 	</div>
 </div><!-- /.blog-sidebar -->

@@ -13,7 +13,7 @@
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		    <ul class="nav navbar-nav">
+		    <ul class="nav navbar-nav" id="navlist">
 				<li id="index" class="active"><a href="<{:U('Index/index')}>">首页 <span class="sr-only">(current)</span></a></li>
 				<li id="bbs"><a href="<{:U('Bbs/index')}>">留言 </a></li>
 				<li id="article"><a href="<{:U('Article/index')}>">文章 </a></li>
@@ -38,8 +38,8 @@
 						
 					</a>
 					<ul class="dropdown-menu">
-						<li><a>个人中心</a></li>
-						<li id="quit"><a href="#">退出</a></li>
+						<li><a href="<{:U('Home/Account/index')}>">个人中心</a></li>
+						<li id="quit"><a href="javascript:;">退出</a></li>
 				    </ul>
 				</empty>
 				</li>

@@ -2,7 +2,6 @@
 <html lang="zh-CN">
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
@@ -49,7 +48,7 @@
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		    <ul class="nav navbar-nav">
+		    <ul class="nav navbar-nav" id="navlist">
 				<li id="index" class="active"><a href="<?php echo U('Index/index');?>">首页 <span class="sr-only">(current)</span></a></li>
 				<li id="bbs"><a href="<?php echo U('Bbs/index');?>">留言 </a></li>
 				<li id="article"><a href="<?php echo U('Article/index');?>">文章 </a></li>
@@ -73,8 +72,8 @@
 						
 					</a>
 					<ul class="dropdown-menu">
-						<li><a>个人中心</a></li>
-						<li id="quit"><a href="#">退出</a></li>
+						<li><a href="<?php echo U('Home/Account/index');?>">个人中心</a></li>
+						<li id="quit"><a href="javascript:;">退出</a></li>
 				    </ul><?php endif; ?>
 				</li>
 			</ul>
@@ -101,7 +100,7 @@
 								<img class="img-responsive" alt="Responsive image" src="/myblog/Public/images/touxiang.jpg" width="54px">
 							</div>
 							<div class="publish-leave">
-								<a href="<?php echo U('Home/Article/index');?>"><span class="glyphicon glyphicon-circle-arrow-left"></span></a>
+								<a href="<?php echo U('Home/Need/index');?>"><span class="glyphicon glyphicon-circle-arrow-left"></span></a>
 							</div>
 							<p class="text-primary ml100"><?php echo ($userList["user"]); ?></p>
 							<p class="ml100">发布新文章</p>

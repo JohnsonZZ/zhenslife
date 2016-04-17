@@ -1,0 +1,27 @@
+
+<div class="regBox">
+	<form id="regFrom"class="form-horizontal"method="post"class="m10"role="form">
+		<div class="form-group">
+			<label for="infoName"class="col-sm-2 control-label">姓名</label>
+			<div class="col-sm-4">
+				<input type="text"class="form-control"id="infoName"maxlength="8"placeholder="请输入姓名">
+			</div>
+				<label for="infoWork"class="col-sm-2 control-label">职业</label>
+			<div class="col-sm-4">
+				<input type="text"class="form-control"id="infoWork"maxlength="8"placeholder="请输入职业">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="infoEmail"class="col-sm-2 control-label">邮箱</label>
+			<div class="col-sm-10">
+				<input type="text"class="form-control"id="infoEmail"maxlength="10"placeholder="请输入邮箱">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="infoIntro"class="col-sm-2  control-label">简介</label>
+			<div class="col-sm-10">
+				<textarea class="form-control" id="infoIntro" rows="3"></textarea>
+			</div>
+		</div>
+	</form>
+</div>

@@ -3,7 +3,6 @@
 <html lang="zh-CN">
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
@@ -50,7 +49,7 @@
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		    <ul class="nav navbar-nav">
+		    <ul class="nav navbar-nav" id="navlist">
 				<li id="index" class="active"><a href="<?php echo U('Index/index');?>">首页 <span class="sr-only">(current)</span></a></li>
 				<li id="bbs"><a href="<?php echo U('Bbs/index');?>">留言 </a></li>
 				<li id="article"><a href="<?php echo U('Article/index');?>">文章 </a></li>
@@ -74,8 +73,8 @@
 						
 					</a>
 					<ul class="dropdown-menu">
-						<li><a>个人中心</a></li>
-						<li id="quit"><a href="#">退出</a></li>
+						<li><a href="<?php echo U('Home/Account/index');?>">个人中心</a></li>
+						<li id="quit"><a href="javascript:;">退出</a></li>
 				    </ul><?php endif; ?>
 				</li>
 			</ul>
@@ -204,14 +203,10 @@
 						</div>
 						<div class="panel panel-default">
 							<div class="panel-heading">								
-								热点推荐<a href="#" class="text-muted fr">>></a>
+								热门推荐<a href="#" class="text-muted fr">>></a>
 							</div>
 							<ul class="list-group">
-								<li class="list-group-list"><a href="" class="text-muted">基于ThinkPHP的博客系统</a></li>
-								<li class="list-group-list"><a href="" class="text-muted">17款最佳的代码审查工具</a></li>
-								<li class="list-group-list"><a href="" class="text-muted">Swift2.0编程中文版</a></li>
-								<li class="list-group-list"><a href="" class="text-muted">前端页面加载jquery</a></li>
-								<li class="list-group-list"><a href="" class="text-muted">August 2013</a></li>
+								<?php if(is_array($hotList)): $i = 0; $__LIST__ = $hotList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$hList): $mod = ($i % 2 );++$i;?><li class="list-group-list"><a href="<?php echo U('Home/Article/theme/id/'.$hList[read_articleid]);?>" class="text-muted"><?php echo ($hList["title"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 				  			</ul>
 				        </div>
 						<div class="panel panel-default">
