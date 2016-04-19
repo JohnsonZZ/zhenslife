@@ -997,10 +997,10 @@ function U($url='',$vars='',$suffix=true,$domain=false) {
         }
     }else{ // PATHINFO模式或者兼容URL模式
         if(isset($route)) {
-            $url    =   __APP__.'/'.rtrim($url,$depr);
+            $url    =   __ROOT__.'/'.rtrim($url,$depr);
         }else{
             $module =   (defined('BIND_MODULE') && BIND_MODULE==$module )? '' : $module;
-            $url    =   __APP__.'/'.($module?$module.MODULE_PATHINFO_DEPR:'').implode($depr,array_reverse($var));
+            $url    =   __ROOT__.'/'.($module?$module.MODULE_PATHINFO_DEPR:'').implode($depr,array_reverse($var));
         }
         if($urlCase){
             $url    =   strtolower($url);
