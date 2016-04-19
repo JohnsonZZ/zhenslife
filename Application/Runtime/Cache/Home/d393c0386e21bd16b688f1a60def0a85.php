@@ -3,7 +3,6 @@
 <html lang="zh-CN">
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
@@ -17,22 +16,13 @@
 	
     <!-- Bootstrap core CSS --> 
     <link rel="stylesheet" href="/myblog/Public/css/bootstrap.min.css" />
-	
+	<link rel="stylesheet" href="/myblog/Public/css/carousel.css" />
 	<!-- Layer core CSS --> 
 	<link rel="stylesheet" href="/myblog/Public/css/layer.css" />
 	
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="/myblog/Public/css/blog.css" />
 	
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/myblog/Public/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top ">
@@ -96,40 +86,40 @@
 		<div class="row mt20">
 			<div class="col-sm-8">
 				<div class="bbs-wrap">
-				<div class="bbs-area">
-					<form action="#" method="post">
-					<div class="form-group">
-						<label class="bbs-label" for="bbstext">有什么事情要帮忙？博主看到就会回复你</label>
-						<textarea class="form-control" id="bbsText" style="resize:none" rows="3"></textarea>
-						<a class="bbs-emoji" id="bbs-emoji"><i></i>表情</a>
-						<button type="button" id="bbs-submit" class="btn btn-primary bbs-btn">发布</button>
+					<div class="bbs-area">
+						<form action="#" method="post">
+						<div class="form-group">
+							<label class="bbs-label" for="bbstext">有什么事情要帮忙？博主看到就会回复你</label>
+							<textarea class="form-control" id="bbsText" style="resize:none" rows="3"></textarea>
+							<a class="bbs-emoji" id="bbs-emoji"><i></i>表情</a>
+							<button type="button" id="bbs-submit" class="btn btn-primary bbs-btn">发布</button>
+						</div>
+							 
+						</form>
 					</div>
-						 
-					</form>
-				</div>
-				<div id="bbs-wrap">
-					<?php if(is_array($bbsList)): $i = 0; $__LIST__ = $bbsList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$bbsList): $mod = ($i % 2 );++$i;?><div class="bbs-cmt mt10">
-						<div class="fl avatar">
-							<img class="img-responsive" alt="Responsive image" src="/myblog/Public/images/touxiang.jpg" width="44px">
-						</div>
-						<div class="cmt-cnt">
-							<div class="cmt-hd">
-								<span class="text-primary"><?php echo ($bbsList["bbs_sender"]); ?></span>
-								<span class="pl10 f12">发于 <?php echo ($bbsList["bbs_time"]); ?></span>
-								<a class="fr" href="javascript:;">评论<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></a>
+					<div id="bbs-wrap">
+						<?php if(is_array($bbsList)): $i = 0; $__LIST__ = $bbsList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$bbsList): $mod = ($i % 2 );++$i;?><div class="bbs-cmt mt10">
+							<div class="fl avatar">
+								<img class="img-responsive" alt="Responsive image" src="/myblog/Public/images/touxiang.jpg" width="44px">
 							</div>
-							<div class="cmt-txt">
-							<p><?php echo ($bbsList["bbs_cnt"]); ?></p>
+							<div class="cmt-cnt">
+								<div class="cmt-hd">
+									<span class="text-primary"><?php echo ($bbsList["bbs_sender"]); ?></span>
+									<span class="pl10 f12">发于 <?php echo ($bbsList["bbs_time"]); ?></span>
+									<a class="fr" href="javascript:;">评论<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></a>
+								</div>
+								<div class="cmt-txt">
+								<p><?php echo ($bbsList["bbs_cnt"]); ?></p>
+								</div>
 							</div>
-						</div>
-					</div><?php endforeach; endif; else: echo "" ;endif; ?>
-					<nav class="text-center">
-						<ul class="pagination">
-						<?php echo ($page); ?>
-						</ul>
-					</nav>
-				</div>
-			</div><!--End col-sm-8-->
+						</div><?php endforeach; endif; else: echo "" ;endif; ?>
+						<nav class="text-center">
+							<ul class="pagination">
+							<?php echo ($page); ?>
+							</ul>
+						</nav>
+					</div>
+				</div><!--End col-sm-8-->
 			</div>
 			<div class="col-sm-4">
 	<div class="vcard">
@@ -195,8 +185,6 @@
 <script src="/myblog/Public/js/jquery.js"></script>
 <script src="/myblog/Public/js/bootstrap.min.js"></script>
 <script src="/myblog/Public/js/layer/layer.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="/myblog/Public/js/ie10-viewport-bug-workaround.js"></script>
 <script>
 	$("#sign").click(function(){
 		layer.open({

@@ -8,42 +8,42 @@
 		<div class="row mt20">
 			<div class="col-sm-8">
 				<div class="bbs-wrap">
-				<div class="bbs-area">
-					<form action="#" method="post">
-					<div class="form-group">
-						<label class="bbs-label" for="bbstext">有什么事情要帮忙？博主看到就会回复你</label>
-						<textarea class="form-control" id="bbsText" style="resize:none" rows="3"></textarea>
-						<a class="bbs-emoji" id="bbs-emoji"><i></i>表情</a>
-						<button type="button" id="bbs-submit" class="btn btn-primary bbs-btn">发布</button>
-					</div>
-						 
-					</form>
-				</div>
-				<div id="bbs-wrap">
-					<volist name="bbsList" id="bbsList">
-					<div class="bbs-cmt mt10">
-						<div class="fl avatar">
-							<img class="img-responsive" alt="Responsive image" src="__PUBLIC__/images/touxiang.jpg" width="44px">
+					<div class="bbs-area">
+						<form action="#" method="post">
+						<div class="form-group">
+							<label class="bbs-label" for="bbstext">有什么事情要帮忙？博主看到就会回复你</label>
+							<textarea class="form-control" id="bbsText" style="resize:none" rows="3"></textarea>
+							<a class="bbs-emoji" id="bbs-emoji"><i></i>表情</a>
+							<button type="button" id="bbs-submit" class="btn btn-primary bbs-btn">发布</button>
 						</div>
-						<div class="cmt-cnt">
-							<div class="cmt-hd">
-								<span class="text-primary"><{$bbsList.bbs_sender}></span>
-								<span class="pl10 f12">发于 <{$bbsList.bbs_time}></span>
-								<a class="fr" href="javascript:;">评论<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></a>
+							 
+						</form>
+					</div>
+					<div id="bbs-wrap">
+						<volist name="bbsList" id="bbsList">
+						<div class="bbs-cmt mt10">
+							<div class="fl avatar">
+								<img class="img-responsive" alt="Responsive image" src="__PUBLIC__/images/touxiang.jpg" width="44px">
 							</div>
-							<div class="cmt-txt">
-							<p><{$bbsList.bbs_cnt}></p>
+							<div class="cmt-cnt">
+								<div class="cmt-hd">
+									<span class="text-primary"><{$bbsList.bbs_sender}></span>
+									<span class="pl10 f12">发于 <{$bbsList.bbs_time}></span>
+									<a class="fr" href="javascript:;">评论<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></a>
+								</div>
+								<div class="cmt-txt">
+								<p><{$bbsList.bbs_cnt}></p>
+								</div>
 							</div>
 						</div>
+						</volist>
+						<nav class="text-center">
+							<ul class="pagination">
+							<{$page}>
+							</ul>
+						</nav>
 					</div>
-					</volist>
-					<nav class="text-center">
-						<ul class="pagination">
-						<{$page}>
-						</ul>
-					</nav>
-				</div>
-			</div><!--End col-sm-8-->
+				</div><!--End col-sm-8-->
 			</div>
 			<include file="Public/right"/>
 		</div><!--End row-->

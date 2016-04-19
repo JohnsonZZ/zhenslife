@@ -15,22 +15,13 @@
 	
     <!-- Bootstrap core CSS --> 
     <link rel="stylesheet" href="/myblog/Public/css/bootstrap.min.css" />
-	
+	<link rel="stylesheet" href="/myblog/Public/css/carousel.css" />
 	<!-- Layer core CSS --> 
 	<link rel="stylesheet" href="/myblog/Public/css/layer.css" />
 	
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="/myblog/Public/css/blog.css" />
 	
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/myblog/Public/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 	
 <body>
@@ -165,8 +156,6 @@
 <script src="/myblog/Public/js/jquery.js"></script>
 <script src="/myblog/Public/js/bootstrap.min.js"></script>
 <script src="/myblog/Public/js/layer/layer.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="/myblog/Public/js/ie10-viewport-bug-workaround.js"></script>
 <script>
 	$("#sign").click(function(){
 		layer.open({

@@ -16,7 +16,7 @@
 	
     <!-- Bootstrap core CSS --> 
     <link rel="stylesheet" href="/myblog/Public/css/bootstrap.min.css" />
-	
+	<link rel="stylesheet" href="/myblog/Public/css/carousel.css" />
 	<!-- Layer core CSS --> 
 	<link rel="stylesheet" href="/myblog/Public/css/layer.css" />
 	

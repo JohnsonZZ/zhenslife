@@ -16,201 +16,179 @@
 	
     <!-- Bootstrap core CSS --> 
     <link rel="stylesheet" href="/myblog/Public/css/bootstrap.min.css" />
-	
+	<link rel="stylesheet" href="/myblog/Public/css/carousel.css" />
 	<!-- Layer core CSS --> 
 	<link rel="stylesheet" href="/myblog/Public/css/layer.css" />
 	
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="/myblog/Public/css/blog.css" />
 	
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/myblog/Public/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top ">
-	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-		    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-		    </button>
-		    <a class="navbar-brand" href="#">Lions</a>
-		</div>
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		    <ul class="nav navbar-nav" id="navlist">
-				<li id="index" class="active"><a href="<?php echo U('Index/index');?>">首页 <span class="sr-only">(current)</span></a></li>
-				<li id="bbs"><a href="<?php echo U('Bbs/index');?>">留言 </a></li>
-				<li id="article"><a href="<?php echo U('Article/index');?>">文章 </a></li>
-		    </ul>
-		    <ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-				<?php if(empty($userList["user"])): ?><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
-						<span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
-						<span class="caret"></span>
-					</a>
-				    <ul class="dropdown-menu">
-					    <li id="sign"><a>登录</a></li>
-					    <li id="register"><a href="#">注册</a></li>
-				    </ul>
-				<?php else: ?>
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						<div class="avatar">
-							<img src="/myblog/Public/images/touxiang.jpg" width="20px">
-						<span class="caret"></span>
-						</div> 
-						
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="<?php echo U('Home/Account/index');?>">个人中心</a></li>
-						<li id="quit"><a href="javascript:;">退出</a></li>
-				    </ul><?php endif; ?>
-				</li>
-			</ul>
-		    <form class="navbar-form navbar-right" role="search">
-				<div class="input-group">
-				  <input type="text" class="form-control" placeholder="搜索" />
-					  <span class="input-group-btn">
-						  <button type="submit" class="btn btn-default">
-							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-						  </button>
-					  </span>
+    <div class="navbar-wrapper">
+		<div class="container">
+			<nav class="navbar navbar-inverse navbar-static-top">
+				<div class="container">
+					<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Lions</a>
+					</div>
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav" id="navlist">
+							<li id="index" class="active"><a href="<?php echo U('Index/index');?>">首页 <span class="sr-only">(current)</span></a></li>
+							<li id="bbs"><a href="<?php echo U('Bbs/index');?>">留言 </a></li>
+							<li id="article"><a href="<?php echo U('Article/index');?>">文章 </a></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li class="dropdown">
+							<?php if(empty($userList["user"])): ?><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
+									<span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu">
+									<li id="sign"><a>登录</a></li>
+									<li id="register"><a href="#">注册</a></li>
+								</ul>
+							<?php else: ?>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+									<div class="avatar">
+										<img src="/myblog/Public/images/touxiang.jpg" width="20px">
+									<span class="caret"></span>
+									</div> 
+									
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href="<?php echo U('Home/Account/index');?>">个人中心</a></li>
+									<li id="quit"><a href="javascript:;">退出</a></li>
+								</ul><?php endif; ?>
+							</li>
+						</ul>
+						<form class="navbar-form navbar-right" role="search">
+							<div class="input-group">
+							  <input type="text" class="form-control" placeholder="搜索" />
+								  <span class="input-group-btn">
+									  <button type="submit" class="btn btn-default">
+										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+									  </button>
+								  </span>
+							</div>
+						</form>
+					</div><!-- /.navbar-collapse -->
 				</div>
-		    </form>
-		</div><!-- /.navbar-collapse -->
-	</div><!-- /.container-fluid -->
-</nav>
-    <div class="container mt50">
-	  <img src="/myblog/Public/images/header.jpg" class="img-responsive mt10" alt="Responsive image">
-      <div class="row mt10">
-        <div class="col-sm-8">
-		<ul class="nav nav-tabs">
-			<li class="active">
-				<a href="" data-toggle='tab'>热门</a>
-			</li>			
-		</ul>
-		<div class="tab-content">
-			<div class="tab-pane active" id="hot">
-				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<?php echo U('Home/Article/theme/id/12');?>">IT痴汉的工作现状</a><span class="fr">2016-03-19</span></p>
-				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">编程之法：面试和算法心得</a><span class="fr">2016-03-19</span></p>
-				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">APP快速开发：用这些工具更给力</a><span class="fr">2016-03-19</span></p>
-				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">基于thinkphp3.2开发的程序员博客</a><span class="fr">2016-03-19</span></p>
-			</div>
+			</nav>
 		</div>
-		<ul class="nav nav-tabs">
-			<li id="branch4" class="active"><a href="" data-toggle='tab'>技术</a></li>
-			<li id="branch7"><a href="" data-toggle='tab'>HTML</a></li>
-			<li id="branch8"><a href="" data-toggle='tab'>CSS</a></li>
-			<li id="branch9"><a href="" data-toggle='tab'>JS</a></li>
-			<li id="branch10"><a href="" data-toggle='tab'>PHP</a></li>
-		</ul>
-		<div class="tab-content">
-			<?php if(is_array($articleList)): $i = 0; $__LIST__ = array_slice($articleList,0,5,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; if($i == 1): ?><div class="tab-pane active" id="article<?php echo ($vo[0]["article_navid"]); ?>">
-					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<?php echo U('Home/Article/theme/id/'.$vo[0][article_id]);?>"><?php echo ($vo[0]["article_title"]); ?></a><span class="fr"><?php echo ($vo[0]["article_time"]); ?></span></p>
-					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<?php echo U('Home/Article/theme/id/'.$vo[1][article_id]);?>"><?php echo ($vo[1]["article_title"]); ?></a><span class="fr"><?php echo ($vo[1]["article_time"]); ?></span></p>
-					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<?php echo U('Home/Article/theme/id/'.$vo[2][article_id]);?>"><?php echo ($vo[2]["article_title"]); ?></a><span class="fr"><?php echo ($vo[2]["article_time"]); ?></span></p>
-					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<?php echo U('Home/Article/theme/id/'.$vo[3][article_id]);?>"><?php echo ($vo[3]["article_title"]); ?></a><span class="fr"><?php echo ($vo[3]["article_time"]); ?></span></p>				
-				</div>
-				<?php else: ?>
-				<div class="tab-pane" id="article<?php echo ($vo[0]["article_navid"]); ?>">
-					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<?php echo U('Home/Article/theme/id/'.$vo[0][article_id]);?>"><?php echo ($vo[0]["article_title"]); ?></a><span class="fr"><?php echo ($vo[0]["article_time"]); ?></span></p>
-					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<?php echo U('Home/Article/theme/id/'.$vo[1][article_id]);?>"><?php echo ($vo[1]["article_title"]); ?></a><span class="fr"><?php echo ($vo[1]["article_time"]); ?></span></p>
-					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<?php echo U('Home/Article/theme/id/'.$vo[2][article_id]);?>"><?php echo ($vo[2]["article_title"]); ?></a><span class="fr"><?php echo ($vo[2]["article_time"]); ?></span></p>
-					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<?php echo U('Home/Article/theme/id/'.$vo[3][article_id]);?>"><?php echo ($vo[3]["article_title"]); ?></a><span class="fr"><?php echo ($vo[3]["article_time"]); ?></span></p>				
-				</div><?php endif; endforeach; endif; else: echo "" ;endif; ?>
-		</div>
-		<ul class="nav nav-tabs">
-			<li id="branch5" class="active"><a href="" data-toggle='tab'>电竞</a></li>
-			<li id="branch11"><a href="" data-toggle='tab'>趣事</a></li>
-			<li id="branch12"><a href="" data-toggle='tab'>攻略</a></li>
-			<li id="branch13"><a href="" data-toggle='tab'>八卦</a></li>			
-		</ul>
-		<div class="tab-content">
-			<div class="tab-pane active" id="hot">
-				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<?php echo U('Home/Article/theme/id/12');?>">IT痴汉的工作现状</a><span class="fr">2016-03-19</span></p>
-				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">编程之法：面试和算法心得</a><span class="fr">2016-03-19</span></p>
-				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">APP快速开发：用这些工具更给力</a><span class="fr">2016-03-19</span></p>
-				<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="#">基于thinkphp3.2开发的程序员博客</a><span class="fr">2016-03-19</span></p>
-			</div>
-		</div>
-		<ul class="nav nav-tabs">
-			<li id="branch6" class="active"><a href="" data-toggle='tab'>闲聊</a></li>
-		</ul>
-		<div class="tab-content">
-			<?php if(is_array($articleList)): $i = 0; $__LIST__ = array_slice($articleList,9,1,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="tab-pane active" id="article<?php echo ($vo[0]["article_navid"]); ?>">
-					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<?php echo U('Home/Article/theme/id/'.$vo[0][article_id]);?>"><?php echo ($vo[0]["article_title"]); ?></a><span class="fr"><?php echo ($vo[0]["article_time"]); ?></span></p>
-					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<?php echo U('Home/Article/theme/id/'.$vo[0][article_id]);?>"><?php echo ($vo[1]["article_title"]); ?></a><span class="fr"><?php echo ($vo[1]["article_time"]); ?></span></p>
-					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<?php echo U('Home/Article/theme/id/'.$vo[0][article_id]);?>"><?php echo ($vo[2]["article_title"]); ?></a><span class="fr"><?php echo ($vo[2]["article_time"]); ?></span></p>
-					<p><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span><a href="<?php echo U('Home/Article/theme/id/'.$vo[0][article_id]);?>"><?php echo ($vo[3]["article_title"]); ?></a><span class="fr"><?php echo ($vo[3]["article_time"]); ?></span></p>				
-				</div><?php endforeach; endif; else: echo "" ;endif; ?>
-		</div>
-        </div><!-- /.blog-main -->
-		<div class="col-sm-4">
-	<div class="vcard">
-		<div class="vcard-hd text-center">
-			 <h5 class="font-bold text-info pt5 no-margin"><?php echo ($userList["user"]); ?></h4>
-			 <h6 class="pt5">一条即将翻身的咸鱼</h6>
-		</div>	
-		<div class="vcard-bd">
-			<div class="avatar fl">
-				<img src="/myblog/Public/images/touxiang.jpg" alt="头像" class="img-thumbnail" width="70px" height="50px" />  	
-			</div>
+    </div>
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item">
+          <img class="first-slide" src="/myblog/Public/images/1.jpg" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>中二少年的专属网站.</h1>
+              <p>热烈欢迎水军前来注册！</p>
+              <p><a class="btn btn-lg btn-primary reg" href="#" role="button">点击即送屠龙宝刀</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item active">
+          <img class="second-slide" src="/myblog/Public/images/2.jpg" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>不要尝试爆破.</h1>
+              <p>我会顺着网线查水表，小心你的快递</p>
+              <p><a class="btn btn-lg btn-primary reg" href="#" role="button">点击查看详情</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="third-slide" src="/myblog/Public/images/3.jpg" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>脑洞大开系列.</h1>
+              <p>看看大家写的留言和文章吧，可有趣啦！</p>
+              <p><a class="btn btn-lg btn-primary reg" href="#" role="button">前来观摩学习</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
 
-			<div class="message">
-				<div class="abstract">
-					<?php echo ($infoList["info_intro"]); ?>
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+      <!-- Three columns of text below the carousel -->
+		<div class="row">
+			<div class="col-lg-4">
+				<a href="<?php echo U('Bbs/index');?>"><img class="img-circle" src="/myblog/Public/images/5.jpg" alt="Generic placeholder image" width="140" height="140"></a>
+			</div><!-- /.col-lg-4 -->
+			<div class="col-lg-4">
+				<a href="<?php echo U('Bbs/index');?>"><img class="img-circle" src="/myblog/Public/images/4.jpg" alt="Generic placeholder image" width="140" height="140"></a>
+			</div><!-- /.col-lg-4 -->
+			<div class="col-lg-4">
+				<a href="<?php echo U('Article/index');?>"><img class="img-circle" src="/myblog/Public/images/7.jpg" alt="Generic placeholder image" width="140" height="140"></a>
+			 </div><!-- /.col-lg-4 -->
+		</div><!-- /.row -->
+		
+		<hr class="divider">
+		<div class="row">
+			<div class="col-sm-5">
+			  <h2>这是一个爆炸性的网站. <br /><span class="text-muted">聊你所聊，畅所欲言.</span></h2>
+			  <p class="lead">迷茫的小羔羊~什么都不会，却什么都想做，又什么都做不好------------懒！</p>
+			</div>
+			<div class="col-sm-7">
+				<div class="index-bbs">
+					<label class="bbs-label" for="bbsform">有什么事情要帮忙？博主看到就会回复你</label>
+					<form action="#" method="post" id="bbsform" class="form-horizontal">
+						<div class="form-group">
+							<label class="sr-only" for="bbsText">留言框组</label>
+							 <div class="col-xs-10">
+								<input type="text" class="form-control" id="bbsText" placeholder="留言">
+							 </div>
+							<button type="button" id="bbs-submit" class="btn btn-primary">快速留言</button>
+						</div>
+					</form>
 				</div>
-				<div class="contact">
-					<span class="glyphicon glyphicon-envelope"></span>
-					<?php echo ($infoList["info_email"]); ?>
+				<div id="bbs-wrap">
+					<?php if(is_array($bbsList)): $i = 0; $__LIST__ = $bbsList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$bbsList): $mod = ($i % 2 );++$i;?><div class="p15">
+							<div class="cmt-hd">
+								<span class="text-primary"><?php echo ($bbsList["bbs_sender"]); ?></span>
+								<span>:<?php echo ($bbsList["bbs_cnt"]); ?></span>
+								<span class="fr f12">发于 <?php echo ($bbsList["bbs_time"]); ?></span>
+							</div>
+						</div><?php endforeach; endif; else: echo "" ;endif; ?>
+					<nav class="text-center">
+						<ul class="pagination">
+							<?php echo ($page); ?>
+						</ul>
+					</nav>
 				</div>
 			</div>
 		</div>
-		<div class="vcard-ft">
-			<div class="vcard-icon text-center">
-				<a><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></a>
-			</div>
-			<div class="vcard-icon text-center">
-				<a><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>
-			</div>
-		</div>
-	</div>
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<span class="glyphicon glyphicon-fire"></span>
-			热门推荐<a href="#" class="text-muted fr">>></a>
-		</div>
-		<ul class="list-group">
-		<?php if(is_array($hotList)): $i = 0; $__LIST__ = $hotList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$hList): $mod = ($i % 2 );++$i;?><li class="list-group-list"><a href="<?php echo U('Home/Article/theme/id/'.$hList[read_articleid]);?>" class="text-muted"><?php echo ($hList["title"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-		</ul>
-	</div>
-    <div class="panel panel-default">
-		<div class="panel-heading">
-			<span class="glyphicon glyphicon-pencil"></span>
-			公告栏<a href="#" class="text-muted fr">>></a>
-		</div>
-		<ul class="list-group">
-			<li class="list-group-list"><a href="" class="text-muted">基于ThinkPHP的博客系统</a></li>
-			<li class="list-group-list"><a href="" class="text-muted">17款最佳的代码审查工具</a></li>
-			<li class="list-group-list"><a href="" class="text-muted">Swift2.0编程中文版</a></li>
-			<li class="list-group-list"><a href="" class="text-muted">前端页面加载jquery</a></li>
-			<li class="list-group-list"><a href="" class="text-muted">August 2013</a></li>
-		</ul>
-	</div>
-</div><!-- /.blog-sidebar -->
-        
-      </div><!-- /.row -->
     </div><!-- /.container -->
 
 	<footer class="blog-footer">
@@ -222,8 +200,6 @@
 <script src="/myblog/Public/js/jquery.js"></script>
 <script src="/myblog/Public/js/bootstrap.min.js"></script>
 <script src="/myblog/Public/js/layer/layer.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="/myblog/Public/js/ie10-viewport-bug-workaround.js"></script>
 <script>
 	$("#sign").click(function(){
 		layer.open({
@@ -334,14 +310,121 @@
 	})	
 </script>
 
-
-
-   
- 	<script>
-		<?php if(is_array($articleList)): $i = 0; $__LIST__ = array_slice($articleList,0,5,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>$("#branch<?php echo ($vo[0]["article_navid"]); ?>").click(function(){
-				$("#article<?php echo ($vo[0]["article_navid"]); ?>").addClass("active");
-				$("#article<?php echo ($vo[0]["article_navid"]); ?>").siblings().removeClass("active");
-			});<?php endforeach; endif; else: echo "" ;endif; ?>
+	<script>
+		$(".reg").click(function(){
+			layer.open({
+				type: 1, 
+				title:'注册',
+				skin: 'layui-layer-rim demo-class', //加上边框
+				area: ['450px', '370px'], //宽高
+				content:'<div class="regBox"><form id="regFrom"class="form-horizontal"method="post"class="m10"role="form"><div class="form-group"><label for="regAccount"class="col-sm-3 control-label">账号</label><div class="col-sm-9"><input type="text"class="form-control"id="regAccount"maxlength="8"placeholder="支持英文，下划线，数字组合"></div></div><div class="form-group"><label for="regUser"class="col-sm-3 control-label">昵称</label><div class="col-sm-9"><input type="text"class="form-control"id="regUser"maxlength="8"placeholder="请输入昵称"></div></div><div class="form-group"><label for="regPwd"class="col-sm-3 control-label">注册密码</label><div class="col-sm-9"><input type="password"class="form-control"id="regPwd"maxlength="10"placeholder="密码6-10位，不能是纯数字"></div></div><div class="form-group"><label for="confirmPwd"class="col-sm-3 control-label">确认密码</label><div class="col-sm-9"><input type="password"class="form-control"id="confirmPwd"maxlength="10"placeholder="输入密码"></div></div><div class="form-group"><label for="verify"class="col-sm-3 control-label">验证码</label><div class="col-sm-5"><input type="text"class="form-control"id="verify"placeholder="输入验证码"></div><div class="col-sm-4"><img id="verifyImg"src="/myblog/index.php/Home/Register/verify"title="点击刷新"height="34px"/></div></div></form></div>',
+				btn: ['确认', '取消'],
+				yes: function(){
+					$.post("<?php echo U('Register/checkForm');?>",
+							{
+								account:$("#regAccount").val(),
+								user:$("#regUser").val(),
+								pwd:$("#regPwd").val(),
+								verify:$("#verify").val()
+							},
+						function(data){
+							var str = '';
+							for(var key in data){  
+								str+= data[key];
+							}
+							if(str != ''){
+								layer.alert(str);
+							}
+							if(data['status']==1)
+							{	
+								layer.closeAll();
+								layer.msg('注册成功');
+							}
+						}
+					)
+				}
+			});	 
+		
+		$("#regAccount").blur(function(){
+			var account = $(this).val();
+			$.post("<?php echo U('Register/checkAccount');?>",{"account":account},function(flag){
+				switch(flag){
+					case 0:layer.tips('支持英文，数字，下划线_<br />且不少于4位', '#regAccount', {tips: 2});break;
+					case 1:layer.tips('账号已存在', '#regAccount', {tips: 2});;break;
+				}
+			});
+		});
+		$("#regUser").blur(function(){
+			var user = $(this).val();
+			$.post("<?php echo U('Register/checkUser');?>",{"user":user},function(flag){
+				switch(flag){
+					case 0:layer.tips('不能为空或有空格', '#regUser', {tips: 2});break;
+					case 1:layer.tips('账号已存在', '#regUser', {tips: 2});;break;
+				}
+			});
+		});
+		
+		$("#regPwd").blur(function(){
+			var pwd = $(this).val();
+			$.post("<?php echo U('Register/checkPwd');?>",{"pwd":pwd},function(flag){
+				if(!flag){
+					layer.tips('密码6~10位<br />不能是纯数字<br />不能全部相同', '#regPwd', {tips: 2});
+				}
+			});
+		});
+		
+		$("#confirmPwd").blur(function(){
+			var regPwd = $("#regPwd").val();
+			var confirmPwd =$(this).val();
+			if(regPwd != confirmPwd)
+				layer.tips('两次密码不一样', '#confirmPwd', {tips: 2});
+		});
+		
+		$("#verify").blur(function(){
+			var verify = $(this).val();
+			$.post("<?php echo U('Register/checkVerify');?>",{"verify":verify},function(flag){
+				if(!flag){
+					layer.tips('验证码错误', '#verify', {tips: 3});
+				}
+			});
+		});
+		$("#verifyImg").click(function(){
+			this.src=this.src+'?'+Math.random();
+		});
+	})
+	$("#bbs-submit").click(function(){
+		var bbsCnt = $("#bbsText").val();
+		var bbsSender = "<?php echo ($userList["user"]); ?>";
+		var bbsUserid = "<?php echo ($userList["id"]); ?>";
+		if(bbsSender==''){
+			layer.msg('请先登录！');
+			return;
+		}
+		if(bbsCnt == ''){
+			layer.tips('主人写点什么再发送吧！','#bbsText',{tips:3});
+			return;
+		}else{
+			$("#bbs-submit").text("发送中..")
+			$.post("<?php echo U('Bbs/checkBBS');?>",
+				{
+					bbsUserid : bbsUserid,
+					bbsSender : bbsSender,
+					bbsCnt : bbsCnt,
+					
+				},
+				function(data){
+					
+					$("#bbs-wrap").prepend('<div class="p15"><div class="cmt-hd"><span class="text-primary" id="bbsSender"></span><span id="bbsCnt"></span><span class="fr f12" id="bbsTime"></span></div></div>'); 
+					$("#bbsSender").text(data['bbs_sender']);
+					$("#bbsTime").text("发于 "+data['bbs_time']);
+					$("#bbsCnt").text(":"+data['bbs_cnt']);
+					$("#bbsText").val("");
+					$("#bbs-submit").blur();
+					$("#bbs-submit").text("发布")
+				}
+			)
+		}
+	})
 	</script>
 
 </body>
